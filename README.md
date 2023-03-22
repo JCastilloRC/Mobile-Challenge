@@ -6,6 +6,8 @@ You can find the source for the code implemented as well as the test data. Howev
 must create a .yml file with the name mentioned above and the following structure:
 
 name: yourName
+
 email:  yourEmail
+
 password: yourPassword
 
