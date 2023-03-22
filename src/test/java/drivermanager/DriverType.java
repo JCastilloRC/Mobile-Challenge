@@ -1,5 +1,6 @@
 package drivermanager;
 
 public enum DriverType {
-    ANDROID
+    EMU_ANDROID,
+    REAL_ANDROID
 }

@@ -5,4 +5,7 @@
             <class name="runner.TestRunner" />
         </classes>
     </test>
+    <listeners>
+        <listener class-name="helper.TestNGListener" />
+    </listeners>
 </suite>

@@ -1,5 +1,6 @@
 package screens;
 
+import classes.User;
 import drivermanager.DriverManager;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -12,30 +13,34 @@ import java.util.Properties;
 public class LoginScreen extends BaseScreen{
 
     private static final Logger LOGGER = LogManager.getLogger(LoginScreen.class);
-    private String withIMDBButtonID;
+    private Properties locators;
 
-    private String notNowButtonID;
-    private String emailFieldXpath;
-    private String passwordFieldXpath;
-    private String signInButtonXpath;
     public LoginScreen(DriverManager driverManager) throws IOException {
         super(driverManager);
-        Properties properties = new Properties();
-        properties.load(new FileInputStream("src/test/resources/loginscreenlocators.properties"));
-        withIMDBButtonID = properties.get("WIMDB_BUTTON_ID").toString();
-        notNowButtonID = properties.get("NOT_NOW_BUTTON_ID").toString();
-        emailFieldXpath = properties.get("EMAIL_FIELD_XPATH").toString();
-        passwordFieldXpath = properties.get("PASSWORD_FIELD_XPATH").toString();
-        signInButtonXpath = properties.get("SIGNIN_BUTTON_XPATH").toString();
+        locators = new Properties();
+        locators.load(new FileInputStream("src/test/resources/loginscreenlocators.properties"));
     }
 
     public BaseScreen skipSignIn() throws IOException {
-        driverManager.tapOnByID(notNowButtonID);
+        LOGGER.info("Taping on 'Skip sign in' button");
+        WebElement notNowButton = driverManager.getElementByID(locators.get("NOT_NOW_BUTTON_ID").toString());
+        driverManager.tapOnElement(notNowButton);
         return new BaseScreen(driverManager);
     }
-    public BaseScreen setCredentials(String email, String password) throws IOException {
-        LOGGER.info(driverManager.getPageSource());
-        driverManager.tapOnByID(withIMDBButtonID);
+    public LoginScreen signInWIMDB(){
+        LOGGER.info("Taping on 'Sign in with IMDB account'");
+        WebElement withIMDBButton = driverManager.getElementByID(locators.get("WIMDB_BUTTON_ID").toString());
+        driverManager.tapOnElement(withIMDBButton);
+        return this;
+    }
+    public BaseScreen setCredentials(User anUser) throws IOException {
+        LOGGER.info("Typing credential for " + anUser.getName());
+        WebElement emailField = driverManager.getElementByXpath(locators.get("EMAIL_FIELD_XPATH").toString());
+        driverManager.typeOnElement(emailField, anUser.getEmail());
+        WebElement passwordField = driverManager.getElementByXpath(locators.get("PASSWORD_FIELD_XPATH").toString());
+        driverManager.typeOnElement(passwordField, anUser.getPassword());
+        WebElement signInButton = driverManager.getElementByXpath(locators.get("SIGNIN_BUTTON_XPATH").toString());
+        driverManager.tapOnElement(signInButton);
         return new BaseScreen(driverManager);
     }
 }

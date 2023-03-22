@@ -1,22 +1,22 @@
 package drivermanager;
 
-import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
-import org.openqa.selenium.support.ui.WebDriverWait;
-
-import java.time.Duration;
+import java.io.File;
+import java.io.IOException;
 import java.util.List;
 
 public interface DriverManager {
-
     int TIMEOUT = 30;
-    WebElement getElementByID(String id);
-    List<WebElement> getElementsById(String id);
-    void tapOnByID(String elementID);
-    void tapOnByID(String elementID, int index);
-    void typeOnByID(String elementID, String input);
+    WebElement getElementByID(String elementID);
+    WebElement getElementByXpath(String elementXpath);
+    WebElement getElementByAccID(String elementAccID);
+    List<WebElement> getElementsByID(String elementID);
+    WebElement scrollToGetElementByID(String elementID);
+    void tapOnElement(WebElement element);
+    void tapOnElement(List<WebElement> elements, int index);
+    void typeOnElement(WebElement element, String input);
+    String getTexOfElement(WebElement element);
     String getPageSource();
+    File takeScreenShot(String name) throws IOException;
     void quitDriver();
-
-
 }

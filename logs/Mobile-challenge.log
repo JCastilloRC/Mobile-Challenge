@@ -1,0 +1,62 @@
+19:43:51.938 [main] INFO  TestRunner: - - - - - - - > START TEST CASE: addMovieToWatchLater
+19:43:52.281 [main] INFO  screens.LoginScreen: Taping on 'Sign in with IMDB account'
+19:43:53.191 [main] INFO  screens.LoginScreen: Typing credential for Jamel
+19:43:58.821 [main] INFO  screens.BaseScreen: Taping on 'search' button...
+19:44:09.483 [main] INFO  screens.SearchScreen: Taping the search bar
+19:44:10.541 [main] INFO  screens.SearchScreen: Filtering by only movies
+19:44:15.020 [main] INFO  screens.SearchScreen: Searching for 'Feeling' on the search bar
+19:44:15.738 [main] INFO  screens.SearchScreen: Taping 'See results' button
+19:44:19.360 [main] INFO  screens.SearchScreen: Selecting the result #2
+19:44:27.405 [main] INFO  screens.MovieScreen: The title of the movie is 'I Don't Feel at Home in This World Anymore'
+19:44:27.405 [main] INFO  screens.MovieScreen: Adding movie to watchlist...
+19:44:32.556 [main] INFO  screens.BaseScreen: Taping on 'You' button...
+19:44:39.385 [main] INFO  screens.YouScreen: Opening watch list...
+19:44:43.449 [main] INFO  screens.MovieListScreen: The title of the movie #1 is 'I Don't Feel at Home in This World Anymore'
+19:44:43.464 [main] INFO  TestRunner: Test successfully executed.
+19:44:43.464 [main] INFO  TestRunner: - - - - - - - > TEST CASE END 
+
+19:44:43.467 [main] INFO  screens.BaseScreen: Taping on 'You' button...
+19:44:44.683 [main] INFO  screens.YouScreen: Opening watch list...
+19:44:46.172 [main] INFO  screens.MovieListScreen: Deleting all movies from WatchList
+
+19:45:03.068 [main] INFO  TestRunner: - - - - - - - > START TEST CASE: rateMovie
+19:45:03.086 [main] INFO  screens.LoginScreen: Taping on 'Sign in with IMDB account'
+19:45:05.612 [main] INFO  screens.LoginScreen: Typing credential for Jamel
+19:45:10.631 [main] INFO  screens.BaseScreen: Taping on 'search' button...
+19:45:16.654 [main] INFO  screens.SearchScreen: Taping the search bar
+19:45:19.063 [main] INFO  screens.SearchScreen: Filtering by only movies
+19:45:22.339 [main] INFO  screens.SearchScreen: Searching for 'A' on the search bar
+19:45:23.039 [main] INFO  screens.SearchScreen: Taping 'See results' button
+19:45:24.504 [main] INFO  screens.SearchScreen: Selecting the first result
+19:45:27.167 [main] INFO  screens.MovieScreen: Scrolling down to 'user reviews' to rate movie...
+19:45:58.819 [main] INFO  screens.RatingScreen: Setting up 5 stars
+19:46:00.581 [main] INFO  screens.RatingScreen: taping on 'Rate' button...
+19:46:34.161 [main] ERROR TestRunner: Test Failed with message: 'Saved message' didn't appear
+19:46:34.162 [main] INFO  TestRunner: - - - - - - - > TEST CASE END 
+
+19:46:34.164 [main] INFO  screens.BaseScreen: Taping on 'You' button...
+19:46:36.066 [main] INFO  screens.YouScreen: Opening ratings list...
+19:46:37.516 [main] INFO  screens.MovieListScreen: Going to screen of movie 'A Man Called Otto'
+19:46:37.518 [main] INFO  screens.MovieScreen: Taping on my rating for this movie...
+19:46:50.988 [main] INFO  Hooks: An element could not be located on the page using the given search parameters.
+For documentation on this error, please visit: https://selenium.dev/exceptions/#no_such_element
+Build info: version: '4.8.1', revision: '8ebccac989'
+System info: os.name: 'Windows 10', os.arch: 'amd64', os.version: '10.0', java.version: '19.0.2'
+Driver info: io.appium.java_client.android.AndroidDriver
+Command: [673d2e19-8841-4b82-959d-1053e98f80b6, findElement {using=-android uiautomator, value=new UiScrollable(new UiSelector().scrollable(true)).scrollIntoView(new UiSelector().resourceIdMatches(".*star.*"));}]
+Capabilities {appium:appActivity: com.imdb.mobile.HomeActivity, appium:appPackage: com.imdb.mobile, appium:automationName: UiAutomator2, appium:databaseEnabled: false, appium:desired: {appActivity: com.imdb.mobile.HomeActivity, appPackage: com.imdb.mobile, automationName: UiAutomator2, deviceName: emulator-5554, platformName: android, platformVersion: 13.0}, appium:deviceApiLevel: 33, appium:deviceManufacturer: Google, appium:deviceModel: sdk_gphone64_x86_64, appium:deviceName: emulator-5554, appium:deviceScreenDensity: 420, appium:deviceScreenSize: 1080x1920, appium:deviceUDID: emulator-5554, appium:javascriptEnabled: true, appium:locationContextEnabled: false, appium:networkConnectionEnabled: true, appium:pixelRatio: 2.625, appium:platformVersion: 13, appium:statBarHeight: 63, appium:takesScreenshot: true, appium:viewportRect: {height: 1794, left: 0, top: 63, width: 1080}, appium:warnings: {}, appium:webStorageEnabled: false, platformName: ANDROID}
+Session ID: 673d2e19-8841-4b82-959d-1053e98f80b6
+19:47:05.126 [main] INFO  TestRunner: - - - - - - - > START TEST CASE: searchForAMovie
+19:47:05.141 [main] INFO  screens.LoginScreen: Taping on 'Skip sign in' button
+19:47:06.515 [main] INFO  screens.BaseScreen: Taping on 'search' button...
+19:47:10.805 [main] INFO  screens.SearchScreen: Taping the search bar
+19:47:13.997 [main] INFO  screens.SearchScreen: Searching for 'Fight Club' on the search bar
+19:47:16.524 [main] INFO  screens.SearchScreen: Selecting the first suggestion
+19:47:20.315 [main] INFO  screens.MovieScreen: Empty Title
+19:47:20.315 [main] INFO  screens.MovieScreen: Lets try one more time...
+19:47:32.204 [main] INFO  screens.MovieScreen: The title of the movie is 'Fight Club'
+19:47:37.688 [main] INFO  screens.MovieScreen: The overview of the movie is 'An insomniac office worker and a devil-may-care soap maker form an underground fight club that evolves into much more.'
+19:47:37.691 [main] INFO  TestRunner: Test successfully executed.
+19:47:37.691 [main] INFO  TestRunner: - - - - - - - > TEST CASE END 
+
+19:47:39.516 [main] INFO  TestRunner: Test run: 3, Passed: 2, Failures: 1, Skipped: 0

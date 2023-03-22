@@ -1,5 +1,0 @@
-15:53:41.619 [main] INFO  TestRunner: - - - - - - - > START TEST CASE: searchForAMovie
-15:53:53.730 [main] INFO  TestRunner: Test successfully executed.
-15:53:53.730 [main] INFO  TestRunner: - - - - - - - > TEST CASE END 
-
-15:53:55.327 [main] INFO  TestRunner: Test run: 1, Passed: 1, Failures: 0, Skipped: 0

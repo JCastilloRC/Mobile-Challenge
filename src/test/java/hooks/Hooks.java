@@ -5,20 +5,51 @@ import drivermanager.DriverManagerFactory;
 import drivermanager.DriverType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.testng.annotations.AfterTest;
-import org.testng.annotations.BeforeTest;
+import org.openqa.selenium.NoSuchElementException;
+import org.openqa.selenium.TimeoutException;
+import org.testng.annotations.*;
+import screens.BaseScreen;
 
 import java.io.IOException;
 
-public class Hooks {
+public class Hooks{
     private static final Logger LOGGER = LogManager.getLogger("Hooks");
     protected DriverManager driverManager;
-    @BeforeTest()
-    public void setUp() throws IOException {
-        driverManager = DriverManagerFactory.getManager(DriverType.ANDROID);
+    public DriverManager getDriverManager() {
+        return driverManager;
     }
-    @AfterTest
+
+    @BeforeMethod()
+    public void setUp() throws IOException {
+        driverManager = DriverManagerFactory.getManager(DriverType.EMU_ANDROID);
+    }
+    @AfterMethod(onlyForGroups = {"WatchList"})
+    public void deleteMovieFromWatchList() throws IOException {
+        try {
+            new BaseScreen(driverManager).
+                    openYouScreen().
+                    openWatchList().
+                    deleteAllMoviesFromWatchList();
+        }catch (TimeoutException|NoSuchElementException e){
+            LOGGER.info(e.getMessage());
+        }
+    }
+    @AfterMethod(onlyForGroups = {"Rating"})
+    public void deleteRating() throws IOException {
+        try {
+            new BaseScreen(driverManager).
+                    openYouScreen().
+                    openMyRatingsList().
+                    goToMovie(0).
+                    fastRateMovie().
+                    deleteRating();
+        }catch (TimeoutException|NoSuchElementException e){
+            LOGGER.info(e.getMessage());
+        }
+    }
+    @AfterMethod(alwaysRun=true)
     public void tearDown(){
         driverManager.quitDriver();
     }
+
 }
